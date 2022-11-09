@@ -1,21 +1,20 @@
 import React from "react";
 import Article from "./Article";
 import Video from "./Video";
-import Popular from "./Popular";
-import New from "./New";
+
 import { withStyle } from "./withStyle";
+import { getWrappingComponent } from "../functions/getWrappingComponent";
 
 export default function List(props) {
   return props.list.map((item, index) => {
     switch (item.type) {
       case 'video':
-        // TBD: get component using a wrapping function, pass it instead of Popular => pass function as third parameter
-        const WrappedVideo = withStyle(Video, Popular);
+        const WrappedVideo = withStyle(Video, getWrappingComponent(item));
         return (
           <WrappedVideo key={index} {...item} />
         );
       case 'article':
-        const WrappedArticle = withStyle(Article, New);
+        const WrappedArticle = withStyle(Article, getWrappingComponent(item));
         return (
           <WrappedArticle key={index} {...item} />
         );
