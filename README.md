@@ -1,2 +1,2 @@
-# netology-react-hoc2
+# react-hoc2
 Wrap Video &amp; Article
